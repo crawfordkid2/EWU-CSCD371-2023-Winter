@@ -1,25 +1,36 @@
 using System;
-using System.ComponentModel;
-using System.IO;
 
 namespace Logger
 {
-   
-    
     public class LogFactory
     {   
-        public string Name { get; set; }
-        private string filePath = null;
+        private string? filePath;
 
-        public BaseLogger CreateLogger(string className){
-            if (className.Equals("FileLogger"))
+        public BaseLogger? CreateLogger(string className) {
+            if (className != null)
             {
-                if (filePath != null)
-                    return new FileLogger(filePath);
-                //else
-                //    throw new InvalidOperationException("You need to call ConfigureFileLogger first to set the path");
+                if (className.Equals(nameof(FileLogger), StringComparison.Ordinal))
+                {
+                    if (filePath != null)
+                    {
+                        var fileLogger = new FileLogger(filePath);
+                        fileLogger.ClassName = nameof(FileLogger);
+                        return fileLogger;
+                    }
+                }
+                else if (className.Equals(nameof(ConsoleLogger), StringComparison.Ordinal))
+                {
+                    var consoleLogger = new ConsoleLogger();
+                    consoleLogger.ClassName = nameof(ConsoleLogger);
+                    return consoleLogger;
+                }
             }
             return null;
+        }
+
+        public void ConfigureFileLogger(string filePath)
+        {
+            this.filePath = filePath;
         }
     }
 }

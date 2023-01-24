@@ -41,6 +41,5 @@ namespace Logger.Tests
             sr.Close();
             File.Delete(path);
         }
-
     }
 }

@@ -9,7 +9,21 @@ namespace Logger.Tests
         [TestMethod]
         public void Create_Null_NotSuccess()
         {
-            Assert.IsNull(new LogFactory().CreateLogger("Successful"));
+            Assert.IsNull(new LogFactory().CreateLogger("Unknown"));
+        }
+
+        [TestMethod]
+        public void Create_FileLogger_NotSuccess()
+        {
+            Assert.IsNull(new LogFactory().CreateLogger("FileLogger"));
+        }
+
+        [TestMethod]
+        public void Create_ConsoleLogger()
+        {
+            var logger = new LogFactory().CreateLogger("ConsoleLogger");
+            Assert.IsNotNull(logger);
+            Assert.IsInstanceOfType(logger, typeof(ConsoleLogger));
         }
     }
 }
