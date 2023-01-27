@@ -32,5 +32,6 @@ namespace Logger
         {
             this.filePath = filePath;
         }
+
     }
 }

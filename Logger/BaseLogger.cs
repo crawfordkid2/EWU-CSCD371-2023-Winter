@@ -1,4 +1,4 @@
-//using static Logger.BaseLoggerMixins;
+
 
 namespace Logger
 {
@@ -7,5 +7,5 @@ namespace Logger
         public abstract void Log(LogLevel level, string message);
         public string? ClassName { get; set; }
     }
-   
 }
+

@@ -1,8 +1,12 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.IO;
 
-namespace Logger.Tests
+namespace Logger.Tests;
+
+[TestClass]
+public class LogFactoryTests
 {
+
     [TestClass]
     public class LogFactoryTests
     {
@@ -26,4 +30,5 @@ namespace Logger.Tests
             Assert.IsInstanceOfType(logger, typeof(ConsoleLogger));
         }
     }
+
 }

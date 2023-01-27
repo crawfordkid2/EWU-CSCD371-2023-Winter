@@ -4,11 +4,11 @@ using System.Collections.Generic;
 using Logger;
 using System.IO;
 
-namespace Logger.Tests
+namespace Logger.Tests;
+
+[TestClass]
+public class BaseLoggerMixinsTests
 {
-    [TestClass]
-    public class BaseLoggerMixinsTests
-    {
         [TestMethod]
         public void NullLogger_ThrowsException()
         {
@@ -49,16 +49,14 @@ namespace Logger.Tests
             sr.Close();
             File.Delete(path);
         }
+}
 
-    }
+public class TestLogger : BaseLogger
+{
+    public List<(LogLevel LogLevel, string Message)> LoggedMessages { get; } = new List<(LogLevel, string)>();
 
-    public class TestLogger : BaseLogger
+    public override void Log(LogLevel logLevel, string message)
     {
-        public List<(LogLevel LogLevel, string Message)> LoggedMessages { get; } = new List<(LogLevel, string)>();
-
-        public override void Log(LogLevel logLevel, string message)
-        {
-            LoggedMessages.Add((logLevel, message));
-        }
+        LoggedMessages.Add((logLevel, message));
     }
 }

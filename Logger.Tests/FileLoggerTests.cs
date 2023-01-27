@@ -4,8 +4,12 @@ using System.IO;
 using static Logger.FileLogger;
 
 
-namespace Logger.Tests
+namespace Logger.Tests;
+
+[TestClass]
+public class FileLoggerTests
 {
+
     [TestClass]
     public class FileLoggerTests
     {
@@ -42,4 +46,5 @@ namespace Logger.Tests
             File.Delete(path);
         }
     }
+
 }
