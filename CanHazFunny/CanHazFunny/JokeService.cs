@@ -1,4 +1,5 @@
 ﻿using System.Net.Http;
+using System.Text.Json;
 
 namespace CanHazFunny
 {
@@ -8,19 +9,15 @@ namespace CanHazFunny
 
         public string GetJoke()
         {
-            string joke = HttpClient.GetStringAsync("https://geek-jokes.sameerkumar.website/api").Result;
-            return JokeFormat(joke);
+            // Extra credit: Read as json and deserialize to object
+            string jsonString = HttpClient.GetStringAsync("https://geek-jokes.sameerkumar.website/api?format=json").Result;
+            Content? content = JsonSerializer.Deserialize<Content>(jsonString);
+            return content?.Joke ?? "";
         }
-        
-        private static string JokeFormat(string unfJoke)
+
+        private class Content
         {
-            string bareString = unfJoke.Remove(0, 10);
-            int index = bareString.Length;
-            bareString = bareString.Remove(index - 3, 3);
-            return bareString;
-
+            public string? Joke { get; set; }
         }
-
-
     }
 }
