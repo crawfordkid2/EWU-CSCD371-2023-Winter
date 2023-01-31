@@ -31,12 +31,12 @@ namespace CanHazFunny
         public void TellAJoke()
         {
             string joke = service.GetJoke();
-            while(joke.ToLower().Contains("chuck norris"))
+            while(joke.Contains("Chuck Norris", StringComparison.OrdinalIgnoreCase))
             {
                 joke = service.GetJoke();
             }
             display.Display(joke);
-
+            Joke = joke;
         }
 
     }
