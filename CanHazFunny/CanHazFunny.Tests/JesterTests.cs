@@ -18,7 +18,7 @@ namespace CanHazFunny.Tests
         public void TellJokeAndReturn()
         {
             string joke = "Knock Knock";
-            Mock<InterfaceJokeServices> temp = new Mock<InterfaceJokeServices>();
+            Mock<IJokeServices> temp = new Mock<IJokeServices>();
             temp.Setup(JokeService => JokeService.GetJoke()).Returns(joke);
             Assert.AreEqual<string>(joke, temp.Object.GetJoke());
         }
@@ -35,7 +35,7 @@ namespace CanHazFunny.Tests
         [ExpectedException(typeof(ArgumentNullException))]
         public void ServiceAndDisplayNullTest()
         {
-            InterfaceJokeServices? services = null;
+            IJokeServices? services = null;
             new Jester(new DisplayOutput(), services);
         }
 
@@ -43,8 +43,8 @@ namespace CanHazFunny.Tests
         [ExpectedException(typeof(ArgumentNullException))]
         public void DisplayNullTest()
         {
-            #nullable enable
-            InterfaceJokeDisplay? display = null;
+#nullable enable
+            IJokeDisplay? display = null;
             new Jester(display, new JokeService());
         }
 
@@ -61,7 +61,7 @@ namespace CanHazFunny.Tests
             Console.SetOut(sw);
 
             string joke = "Knock Knock";
-            Mock<InterfaceJokeServices> jokeService = new Mock<InterfaceJokeServices>();
+            Mock<IJokeServices> jokeService = new Mock<IJokeServices>();
             jokeService.Setup(JokeService => JokeService.GetJoke()).Returns(joke);
             
             Jester temp = new(new DisplayOutput(), jokeService.Object);

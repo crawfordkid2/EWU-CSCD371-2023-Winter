@@ -3,7 +3,7 @@ using System.Text.Json;
 
 namespace CanHazFunny
 {
-    public class JokeService :InterfaceJokeServices
+    public class JokeService : IJokeServices
     {
         private HttpClient HttpClient { get; } = new();
 

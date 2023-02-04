@@ -2,7 +2,7 @@
 
 namespace CanHazFunny
 {
-    public class DisplayOutput : InterfaceJokeDisplay
+    public class DisplayOutput : IJokeDisplay
     {
         public void Display(string joke)
         {

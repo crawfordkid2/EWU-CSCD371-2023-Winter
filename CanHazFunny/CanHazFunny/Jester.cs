@@ -1,17 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CanHazFunny
 {
     public class Jester
     {
-        private readonly InterfaceJokeServices service;
-        private readonly InterfaceJokeDisplay display;
+        private readonly IJokeServices _service;
+        private readonly IJokeDisplay _display;
 
-        public Jester(InterfaceJokeDisplay? thisdisplay, InterfaceJokeServices? thisservice)
+        public Jester(IJokeDisplay? thisdisplay, IJokeServices? thisservice)
         {
             if(thisservice == null)
             {
@@ -22,20 +18,20 @@ namespace CanHazFunny
                 throw new ArgumentNullException(nameof(thisdisplay));
             }
 
-            this.service = thisservice;
-            this.display = thisdisplay;
+            this._service = thisservice;
+            this._display = thisdisplay;
         }
         
         public string? Joke { get; set; }
 
         public void TellAJoke()
         {
-            string joke = service.GetJoke();
+            string joke = _service.GetJoke();
             while(joke.Contains("Chuck Norris", StringComparison.OrdinalIgnoreCase))
             {
-                joke = service.GetJoke();
+                joke = _service.GetJoke();
             }
-            display.Display(joke);
+            _display.Display(joke);
             Joke = joke;
         }
 
