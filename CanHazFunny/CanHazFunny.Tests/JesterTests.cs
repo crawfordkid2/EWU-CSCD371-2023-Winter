@@ -1,4 +1,3 @@
-using Castle.Core.Logging;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 

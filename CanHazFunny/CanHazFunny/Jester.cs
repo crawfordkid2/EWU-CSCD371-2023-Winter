@@ -15,11 +15,11 @@ namespace CanHazFunny
         {
             if(thisservice == null)
             {
-                throw new System.ArgumentNullException(nameof(thisservice));
+                throw new ArgumentNullException(nameof(thisdisplay));
             }
             if (thisdisplay == null)
             {
-                throw new System.ArgumentNullException(nameof(thisdisplay));
+                throw new ArgumentNullException(nameof(thisdisplay));
             }
 
             this.service = thisservice;
