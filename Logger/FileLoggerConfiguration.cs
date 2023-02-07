@@ -1,5 +1,4 @@
 ﻿namespace Logger;
-
 public class FileLoggerConfiguration : ILoggerConfiguration
 {
     public FileLoggerConfiguration(string filePath, string logSource)
@@ -12,7 +11,6 @@ public class FileLoggerConfiguration : ILoggerConfiguration
                 : logSource;
 
     }
-    
     public string FilePath { get;  }
     public string LogSource { get; }
 }

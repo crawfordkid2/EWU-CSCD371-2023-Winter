@@ -1,11 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Logger //all of these will be immutible records. This is because when we create a new object, we need to create a new object every time
-                // Instead if we made these mutable objects, there is a chance we would overwrite something and "delete" a previous record.
+﻿namespace Logger //all of these will be immutible records. This is because when we create a new object, we need to create a new object every time
+                 // Instead if we made these mutable objects, there is a chance we would overwrite something and "delete" a previous record.
 
 {
 
@@ -19,9 +13,6 @@ namespace Logger //all of these will be immutible records. This is because when 
         public string First { get; } = First ?? throw new ArgumentNullException(nameof(First));
         public string Last { get; } = Last ?? throw new ArgumentNullException(nameof(Last));
         public string Middle { get; } = Middle!;
-        
-       
-
     }
 
     //for all below here, we implicitly are casting name as a trait of one of these classes. 
@@ -48,7 +39,4 @@ namespace Logger //all of these will be immutible records. This is because when 
     public record Employee(FullName Full, string Position, string Company) : Someone(Full);
     //the student record is very similar to the employee but is slightly different with what fields are needed.
     public record Student(FullName Full, string Degree, string School) : Someone(Full);
-   
-
-
 }
