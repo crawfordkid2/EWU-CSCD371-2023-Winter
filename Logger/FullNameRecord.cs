@@ -14,8 +14,8 @@ namespace Logger
     {
         public string First { get; } = First ?? throw new ArgumentNullException(nameof(First));
         public string Last { get; } = Last ?? throw new ArgumentNullException(nameof(Last));
-        public string Middle { get; } = Middle;
-
+        public string Middle { get; } = Middle!;
+        
        
 
     }
@@ -27,7 +27,9 @@ namespace Logger
     }
 
 
-    //this is the record that turns someones full name into a name, (First middle last) = name using our abstract class 
+    //this is the record that turns someones full name into a name, (First middle last) = name using our abstract class
+    //this is explicitly calling the name override to set the fullname while implicitly telling 
+    //the console 
     public record Someone(FullName Full): AbstractEntity
     {
         public override string Name { get => Full.ToString(); }

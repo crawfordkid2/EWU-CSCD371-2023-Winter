@@ -31,7 +31,7 @@ namespace Logger.Tests
             //Arrange
             Storage record = new();
             FullName stuName = new("Laura", "Angles", "Wilder");
-            Student stuRecord = new(stuName, "Writer", "PBS");
+            Student stuRecord = new(stuName, "English", "EWU");
             //Act
             record.Add(stuRecord);
 
@@ -61,7 +61,7 @@ namespace Logger.Tests
             //Arrange
             Storage record = new();
             FullName emp = new("Laura", "Angles", "Wilder");
-            Employee empRecord = new(emp, "Comp Sci", "EWU");
+            Employee empRecord = new(emp, "Writer", "Valve");
             //Act
             record.Add(empRecord);
             //Assert
@@ -71,7 +71,23 @@ namespace Logger.Tests
 
         }
 
+        [TestMethod]
+        public void CheckIDTest()
+        {  
+            Storage record = new();
+            FullName name = new("Tom", "Cruise", null);
+            string ISBN = "1738";
+            Book book = new("where the red fern",name , ISBN);
+            Guid id = book.ID;
 
+            record.Add(book);
+            Book book2 = record.Get(id) as Book ?? throw new ArgumentNullException();
+
+
+
+            Assert.AreEqual(book2, book);
+
+        }
 
 
     }
