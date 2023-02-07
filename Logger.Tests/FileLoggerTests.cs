@@ -9,10 +9,6 @@ namespace Logger.Tests;
 [TestClass]
 public class FileLoggerTests
 {
-
-    [TestClass]
-    public class FileLoggerTests
-    {
         [TestMethod]
         public void FileLoggerTest()
         {
@@ -45,6 +41,4 @@ public class FileLoggerTests
             sr.Close();
             File.Delete(path);
         }
-    }
-
 }

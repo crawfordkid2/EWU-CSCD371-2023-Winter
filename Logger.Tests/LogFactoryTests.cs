@@ -6,10 +6,6 @@ namespace Logger.Tests;
 [TestClass]
 public class LogFactoryTests
 {
-
-    [TestClass]
-    public class LogFactoryTests
-    {
         [TestMethod]
         public void Create_Null_NotSuccess()
         {
@@ -29,6 +25,5 @@ public class LogFactoryTests
             Assert.IsNotNull(logger);
             Assert.IsInstanceOfType(logger, typeof(ConsoleLogger));
         }
-    }
 
 }
