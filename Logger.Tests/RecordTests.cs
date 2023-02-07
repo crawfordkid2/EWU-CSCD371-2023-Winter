@@ -70,14 +70,14 @@ namespace Logger.Tests
 
 
         }
-        /*
+        
         [TestMethod]
         public void CheckIDTest()
         {  
             Storage record = new();
             FullName name = new("Tom", "Cruise", null);
             Student stu = new(name, "Theater", "EWU");
-            Guid id = stu.ID;
+            Guid id = stu.Id;
             record.Add(stu);
             
 
@@ -86,7 +86,7 @@ namespace Logger.Tests
             
 
         }
-        */
+        
 
     }
    
