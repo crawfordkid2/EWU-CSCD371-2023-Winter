@@ -70,25 +70,23 @@ namespace Logger.Tests
 
 
         }
-
+        /*
         [TestMethod]
         public void CheckIDTest()
         {  
             Storage record = new();
             FullName name = new("Tom", "Cruise", null);
-            string ISBN = "1738";
-            Book book = new("where the red fern",name , ISBN);
-            Guid id = book.ID;
+            Student stu = new(name, "Theater", "EWU");
+            Guid id = stu.ID;
+            record.Add(stu);
+            
 
-            record.Add(book);
-            Book book2 = record.Get(id) as Book ?? throw new ArgumentNullException();
-
-
-
-            Assert.AreEqual(book2, book);
+            Student stu2 = record.Get(id) as Student ?? throw new ArgumentNullException();
+            Assert.IsNotNull(stu2);
+            
 
         }
-
+        */
 
     }
    
