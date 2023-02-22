@@ -1,9 +1,8 @@
-﻿using Calculate;
-namespace Calculate;
-using System;
+﻿namespace Calculate;
     public class Program
     {
-
+        public Action<string> WriteLine { get; init; } = x => Console.WriteLine(x);
+        public Func<string?> ReadLine { get; init; } = () => Console.ReadLine();
         public static void Main()
         {
             var calc = new Calculator();
@@ -13,7 +12,7 @@ using System;
                 Console.WriteLine("Type a Mathmatical Equation " +
                     "\n (Ex: x+y, x-y, x*y, x/y)" +
                     "\n make sure to put a space between characters and symbols");
-                string input = Console.ReadLine();
+                var input = Console.ReadLine();
                 if (string.IsNullOrEmpty(input)) break;
                 if(calc.TryCalculate(input,out var result))
                 {
@@ -24,18 +23,7 @@ using System;
                 {
                     Console.WriteLine("Invalid equation ");
                 }
-                
-
-
-
             }
-
-
         }
-
-        public Action<string> WriteLine { get; init; } = x => Console.WriteLine(x);
-
-        public Func<string?> ReadLine { get; init; } = () => Console.ReadLine();
-
 
     }

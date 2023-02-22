@@ -1,13 +1,9 @@
-﻿using Calculate;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
-
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Calculate {
     [TestClass]
     public class MyTestClass
     {
-
         [TestMethod]
         public void addSuccess()
         {
@@ -78,7 +74,6 @@ namespace Calculate {
         [TestMethod]
         public void TryCalcDivTest()
         {
-
             int output;
             var calc = new Calculator();
             bool test = calc.TryCalculate("4 / 2", out output);
@@ -98,9 +93,5 @@ namespace Calculate {
             Assert.AreEqual(2, output);
 
         }
-        
-
     }
-
-
 }
