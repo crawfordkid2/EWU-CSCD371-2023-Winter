@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Calculate.Tests", "..\Calcu
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionItems", "SolutionItems", "{A1343FA6-6C84-4A3A-B66C-43D8CC8E26AA}"
 	ProjectSection(SolutionItems) = preProject
-		TextFile1.txt = TextFile1.txt
+		..\Directory.Build.props = ..\Directory.Build.props
 	EndProjectSection
 EndProject
 Global
